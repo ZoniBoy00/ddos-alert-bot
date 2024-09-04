@@ -60,6 +60,7 @@ h2 {
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 li {
@@ -81,4 +82,54 @@ li:hover {
     font-weight: bold;
     color: #00ff00; /* Green color for status messages */
     font-size: 1.5em; /* Larger text for visibility */
+}
+
+/* Blocked IPs section styles */
+#blocked-ips ul {
+    margin: 0;
+    padding: 0;
+}
+
+#blocked-ips li {
+    color: #ff0000; /* Red color to indicate blocked status */
+    font-weight: bold;
+}
+
+/* Alert messages */
+#alertList li {
+    color: #ff0000; /* Red color for alerts */
+}
+
+#attackList li {
+    color: #ff4500; /* Orange color for attacks */
+}
+
+/* Network Statistics */
+#network-statistics p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #00ff00;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    #statusMessage {
+        font-size: 1.2em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    li {
+        padding: 8px;
+    }
 }
