@@ -2,9 +2,9 @@
   "name": "ddos-alert-bot",
   "version": "1.0.0",
   "description": "A bot to monitor and manage DDoS attacks with a web dashboard.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "discord.js": "^14.5.1",
