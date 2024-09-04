@@ -1,6 +1,6 @@
 {
   "name": "ddos-alert-bot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A bot to monitor and manage DDoS attacks with a web dashboard.",
   "main": "index.js",
   "scripts": {
