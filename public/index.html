@@ -17,6 +17,12 @@
                 <h2>Bot Status</h2>
                 <p id="statusMessage">Unknown</p>
             </section>
+            <section id="network-statistics">
+                <h2>Network Statistics</h2>
+                <p>Total Attacks: <span id="totalAttacks">0</span></p>
+                <p>Average Response Time: <span id="averageResponseTime">0 ms</span></p>
+                <p>Blocked IPs: <span id="blockedIPCount">0</span></p>
+            </section>
             <section id="ongoing-attacks">
                 <h2>Ongoing Attacks</h2>
                 <ul id="attackList"></ul>
@@ -24,6 +30,10 @@
             <section id="recent-alerts">
                 <h2>Recent Alerts</h2>
                 <ul id="alertList"></ul>
+            </section>
+            <section id="blocked-ips">
+                <h2>Blocked IPs</h2>
+                <ul id="blockedList"></ul>
             </section>
         </main>
         <script src="/js/main.js"></script>
