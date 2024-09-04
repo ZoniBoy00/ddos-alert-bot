@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const statusMessage = document.getElementById('statusMessage');
+    const totalAttacks = document.getElementById('totalAttacks');
+    const averageResponseTime = document.getElementById('averageResponseTime');
+    const blockedIPCount = document.getElementById('blockedIPCount');
     const attackList = document.getElementById('attackList');
     const alertList = document.getElementById('alertList');
+    const blockedList = document.getElementById('blockedList');
 
     // Function to fetch bot status
     async function fetchBotStatus() {
@@ -43,8 +47,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Function to fetch blocked IPs
+    async function fetchBlockedIPs() {
+        try {
+            const response = await fetch('/blocked-ips');
+            const data = await response.json();
+            blockedList.innerHTML = data.blockedIPs.map(ip =>
+                `<li>IP: ${ip}</li>`
+            ).join('');
+        } catch (error) {
+            console.error('Error fetching blocked IPs:', error);
+            blockedList.innerHTML = '<li>Error fetching blocked IPs</li>';
+        }
+    }
+
+    // Function to fetch network statistics
+    async function fetchNetworkStats() {
+        try {
+            const response = await fetch('/network-stats');
+            const data = await response.json();
+            totalAttacks.textContent = data.totalAttacks;
+            averageResponseTime.textContent = `${data.averageResponseTime} ms`;
+            blockedIPCount.textContent = data.blockedIPCount;
+        } catch (error) {
+            console.error('Error fetching network statistics:', error);
+            totalAttacks.textContent = 'Error';
+            averageResponseTime.textContent = 'Error';
+            blockedIPCount.textContent = 'Error';
+        }
+    }
+
     // Initial data fetch
     fetchBotStatus();
     fetchOngoingAttacks();
     fetchRecentAlerts();
+    fetchBlockedIPs();
+    fetchNetworkStats();
+
+    // Refresh data every 60 seconds
+    setInterval(() => {
+        fetchBotStatus();
+        fetchOngoingAttacks();
+        fetchRecentAlerts();
+        fetchBlockedIPs();
+        fetchNetworkStats();
+    }, 60000);
 });
